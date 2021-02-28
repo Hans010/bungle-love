@@ -1,15 +1,15 @@
-import logo from './logo.jpeg';
-import './App.css';
+// import logo from './logo.jpeg';
+import Navbar from "./components/Navbar/Navbar";
+import AlbumList from "./components/AlbumList/AlbumList";
+import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Navbar/>
+            <AlbumList/>
+        </div>
+    );
 }
 
 export default App;

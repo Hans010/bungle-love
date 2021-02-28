@@ -1,0 +1,27 @@
+@import '../../index';
+
+.album-list {
+  width: 70vw;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .album-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .album-list {
+    width: 85vw;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1440px) {
+  .album-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

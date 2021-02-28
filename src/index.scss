@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$mainBlack: #222;
+$mainRed: #bd2020;
+$mainWhite: #fff;
+$mainGrey: #ececec;
+
+body {
+  background: $mainWhite;
+  font-family: 'Open Sans', sans-serif;
+  color: $mainRed;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
