@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Album from "../Album/Album";
 import {bungleData} from '../../bungleData';
-import classes from './AlbumList.scss';
+import './AlbumList.scss';
 
 const AlbumList = (props) => {
 
