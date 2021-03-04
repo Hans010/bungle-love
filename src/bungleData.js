@@ -1,6 +1,6 @@
 export const bungleData = [
     {
-        id: 1,
+        id: "1",
         name: 'Mr Bungle',
         cover: './assets/bungle.jpg',
         year: 1991,
@@ -17,7 +17,7 @@ export const bungleData = [
             "Dead Goon"]
     },
     {
-        id: 2,
+        id: "2",
         name: 'Disco Volante',
         cover: './assets/disco.jpg',
         year: 1995,
@@ -37,7 +37,7 @@ export const bungleData = [
         ]
     },
     {
-        id: 3,
+        id: "3",
         name: 'California',
         cover: './assets/california.jpg',
         year: 1999,
@@ -55,7 +55,7 @@ export const bungleData = [
         ]
     },
     {
-        id: 4,
+        id: "4",
         name: 'The Raging Wrath of the Easter Bunny Demo',
         cover: './assets/bunny.jpg',
         year: 2020,
