@@ -2,6 +2,8 @@
 
 _This project is part of the **"You have to start somewhere"** React Project Series_
 
+You can [check it out here](https://bungle-love.netlify.app/)
+
 Simple display of Mr Bungle's albums.
 App fetches data from file and displays albums.
 Each album container holds a cover image, year of release and expandable track list
