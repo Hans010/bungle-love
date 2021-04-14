@@ -24,16 +24,15 @@ const Album = (props) => {
         </div>);
 
     return (
-        // <Draggable draggableId={id}
-        // index={props.index}>
-        //     {(provided) => (
-        //     <article
-        //         className="album"
-        //         {...provided.draggableProps}
-        //         {...provided.dragHandleProps}
-        //         ref={provided.innerRef}
-        //     >
-        <div className="album">
+        <Draggable draggableId={id}
+        index={props.index}>
+            {(provided) => (
+            <article
+                className="album"
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+                ref={provided.innerRef}
+            >
             <div className="img-container">
                 <img
                     src={cover}
@@ -48,10 +47,9 @@ const Album = (props) => {
                 <h5 onClick={toggleTracks}>Track listing <span><i className="fas fa-caret-square-down"/></span></h5>
             </div>
             {trackList}
-        </div>
-        //     </article>
-        //         )}
-        // </Draggable>
+            </article>
+                )}
+        </Draggable>
     );
 }
 

@@ -4,37 +4,52 @@ import {bungleData} from '../../bungleData';
 import {DragDropContext, Droppable} from "react-beautiful-dnd";
 import './AlbumList.scss';
 
-const AlbumList = (props) => {
+const AlbumList = () => {
 
     const [albums, setAlbums] = useState(bungleData);
+    const size = useWindowSize();
 
-    // const onDragEnd = result => {
-    //     console.log(result);
-    //     const {destination, source, draggableId} = result;
-    //
-    //     if (!destination) return;
-    //
-    //     if (destination.index === source.index) return;
-    //
-    //     const movedAlbum = albums.filter(album => {
-    //         return album.id === draggableId;
-    //     })[0];
-    //
-    //     console.log(movedAlbum);
-    //
-    //     const newAlbumList = [...albums];
-    //     newAlbumList.splice(source.index, 1);
-    //     newAlbumList.splice(destination.index, 0, movedAlbum);
-    //
-    //     // console.log(newAlbumList);
-    //
-    //     setAlbums(newAlbumList);
-    //
-    // };
+    function useWindowSize() {
+        const [windowSize, setWindowSize] = useState({
+            width: undefined,
+            height: undefined,
+        });
+
+        useEffect(() => {
+            function handleResize() {
+                setWindowSize({
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                });
+            }
+
+            window.addEventListener("resize", handleResize);
+
+            handleResize();
+
+            return () => window.removeEventListener("resize", handleResize);
+        }, []);
+        return windowSize;
+    }
+
+    const onDragEnd = result => {
+        console.log(result);
+        const {destination, source, draggableId} = result;
+
+        if (!destination || (destination.index === source.index)) return;
+
+        const movedAlbum = albums.filter(album => album.id === draggableId)[0];
+
+        const newAlbumList = [...albums];
+        newAlbumList.splice(source.index, 1);
+        newAlbumList.splice(destination.index, 0, movedAlbum);
+
+        setAlbums(newAlbumList);
+    };
 
     const removeAlbum = id => {
         setAlbums(albums.filter(album => album.id !== id
-        ));
+        ))
     }
 
     const albumList = albums.map((album, index) =>
@@ -45,24 +60,23 @@ const AlbumList = (props) => {
             remove={() => removeAlbum(album.id)}
         />
     )
+    console.log('window size', size);
 
     return (
-        // <DragDropContext onDragEnd={onDragEnd}>
-        //     <Droppable droppableId="albumList1">
-        //         {(provided) =>
-        //             <section
-        //                 className="album-list"
-        //                 ref={provided.innerRef}
-        //                 {...provided.droppableProps}
-        //             >
-        <div className="album-list">
-            {albumList}
-        </div>
-        // {provided.placeholder}
-        // </section>
-        // }
-        // </Droppable>
-        // </DragDropContext>
+        <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="albumList1" direction={size.width > 480 ? "horizontal" : "vertical"}>
+                {(provided) =>
+                    <section
+                        className="album-list"
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                    >
+                        {albumList}
+                        {provided.placeholder}
+                    </section>
+                }
+            </Droppable>
+        </DragDropContext>
     );
 }
 
