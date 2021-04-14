@@ -3,15 +3,30 @@
 .album {
   background: $mainGrey;
   margin: 1rem 0;
+  padding-bottom: 1rem;
   border-radius: 0.8rem;
   border: 1px solid $mainBlack;
   width: 300px;
+  height: 100%;
+  min-height: 540px;
+  position: relative;
 
   img {
     width: 100%;
     border-top-left-radius: 0.8rem;
     border-top-right-radius: 0.8rem;
     display: block;
+  }
+
+  h5 {
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .song-item {
+margin-left: 2rem;
   }
 }
 
@@ -37,9 +52,15 @@
 
 .album-info {
   padding: 1rem 0.5rem;
+  position: relative;
+  min-height: 220px;
 
   h2 {
     text-transform: uppercase;
+  }
+
+  .smaller-font {
+    font-size: 24px;
   }
 
   h4 {
@@ -47,14 +68,9 @@
     margin: 0.2rem 0 0.6rem;
   }
 
-  h5 {
-    cursor: pointer;
-  }
-
-  ul {
-    list-style-type: none;
+  ol {
     color: $mainBlack;
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 

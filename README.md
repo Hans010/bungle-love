@@ -11,9 +11,6 @@ Each album container holds a cover image, year of release and expandable track l
 User can toggle track list and delete albums. 
 Refreshing the page will restore all albums.
 
-UPDATE:
-Added drag and drop functionality with react-beautiful-dnd library.
-
 ## Installation
 
 ```sh
